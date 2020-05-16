@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}MIKO's COOKING{% endblock %}
+
+{% block content %}
+{% if latest_recipe_list %}
+<ul class="recipe_list">
+    {% for recipe in latest_recipe_list %}
+    <li><a href = "{% url 'blog:detail' recipe.id %}">{{recipe.recipe_name}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No recipes available :(</p>
+{% endif %}
+{% endblock %}

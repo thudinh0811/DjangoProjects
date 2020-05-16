@@ -1,0 +1,100 @@
+@font-face{
+    font-family: BarFont;
+    src: url(font/iCielNougatScript-ExtraBold.otf);
+}
+
+@font-face{
+    font-family: ListFont;
+    src: url(font/Cucho\ Bold.otf);
+}
+
+@font-face{
+    font-family: TitleFont;
+    src: url(font/Helena.ttf);
+}
+
+@font-face{
+    font-family: BodyFont;
+    src: url(font/iCiel\ Altus\ Serif.ttf);
+}
+
+div.navbar {
+    display: flex; /* show like a table */
+    flex-direction: row;
+    background-color: skyblue;
+    justify-content: space-evenly;
+}
+div.navbar span{
+    display: inline-flex;
+    height: 50px;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-family: BarFont;
+    color: darkblue;
+}
+div.navbar span:hover {
+    background-color: plum;
+}
+
+li a{
+    display: inline-block;
+    color: whitesmoke;
+    font-size: xx-large;
+    text-decoration: none;
+    margin: 20px;
+    height: 100px;
+    width: auto;
+    
+}
+.recipe_list{
+    display: flex;
+    list-style: "\2764";
+    color: #ffffff;
+    font-family: ListFont;
+    column-count: 5;
+    justify-content: space-evenly;
+    list-style-position: inside;
+}
+
+.recipe_list li{
+    margin: 50px;
+}
+
+.recipe_title{
+    text-align: center;
+    color: whitesmoke;
+    font-family: TitleFont;
+    font-size: 5em;
+}
+.ingredient_title, .instruction_title{
+    text-align: left;
+    color: whitesmoke;
+    font-family: BodyFont;
+    font-size: 3em;
+    font-style: bold;
+    margin: 20px;
+}
+.ingredient_list{
+    text-align: left;
+    background-color: royalblue;
+    color: powderblue;
+    font-family: BodyFont;
+    font-size: 2em;
+    list-style: square;
+    margin: 20px;
+}
+
+.instruction_list{
+    text-align: left;
+    background-color: powderblue;
+    color: darkblue;
+    font-family: BodyFont;
+    font-size: 2em;
+    margin: 20px;
+}
+body{
+    background-color: cornflowerblue;
+    margin: 0;
+}

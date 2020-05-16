@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<head>
+    <title>{% block title %}MIKO's Recipe{% endblock %}</title>
+    <link rel = "stylesheet" type = "text/css" href="{% static 'blog/style.css' %}">
+</head>
+
+<body>
+    <div class = "navbar">
+        {% block navbar %}
+        <span id="home">HOME</span>
+        <span id="add_recipes">ADD RECIPES</span>
+        <span id="my_profile">MY PROFILE</span>
+        {% if user.is_authenticated %}
+            <span id="logout">Logout</span>
+        {% else %}
+            <span id="login">Login</span>
+        {% endif %}
+        {% endblock %}
+    </div>
+
+    <div class = "messages">
+        {% block messages %}
+        {% if messages %}
+        <ul class = "messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class = "{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endblock %}
+    </div>
+    
+    <div class = "content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script>
+        const home = document.getElementById("home")
+        const login = document.getElementById("login")
+        const logout = document.getElementById("logout")
+
+        home.addEventListener('click', evt => {
+            window.location.href = "{% url 'blog:index' %}"
+        })
+
+        if (login){
+            login.addEventListener('click', evt => {
+                window.location.href = "{% url 'blog:login' %}"
+        })}
+        else if (logout){
+            logout.addEventListener('click', evt=> {
+                window.location.href = "{% url 'blog:logout' %}"
+            })
+        }
+
+    </script>
+</body>
