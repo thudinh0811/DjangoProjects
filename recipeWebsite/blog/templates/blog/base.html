@@ -39,10 +39,19 @@
         const home = document.getElementById("home")
         const login = document.getElementById("login")
         const logout = document.getElementById("logout")
-
+        const profile = document.getElementById("my_profile")
+        const addRecipe = document.getElementById("add_recipes")
         home.addEventListener('click', evt => {
-            window.location.href = "{% url 'blog:index' %}"
-        })
+            window.location.href = "{% url 'blog:index' %}";
+        });
+
+        profile.addEventListener('click', evt => {
+            window.location.href = "{% url 'blog:profile' %}";
+        });
+
+        addRecipe.addEventListener('click', evt=> {
+            window.location.href= "{% url 'blog:add' %}";
+        });
 
         if (login){
             login.addEventListener('click', evt => {

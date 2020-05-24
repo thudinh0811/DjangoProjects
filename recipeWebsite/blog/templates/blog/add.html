@@ -1,0 +1,88 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}ADD NEW RECIPE{% endblock %}
+
+{% block content %}
+<script>
+    let countIng = 1;
+    let countIns = 1;
+</script>
+
+<form action = "{% url 'blog:add' %}" method = "POST">
+    {% csrf_token %}
+
+<h3>Name of your recipe</h3>
+<input type="text" name = "recipe_name" id = "recipe_name" required>
+
+<h3>Ingredient</h3>
+<table>
+    <tr>
+        <th>Ingredient</th><th>Amount</th>
+    </tr>
+    <tr id="row1">
+        <td><input type = "text" name = "ingredient_name1" id = "ingredient_name1" required></li> </td>
+        <td><input type = "text" name = "ingredient_amount1" id = "ingredient_amount1" required></td>
+        <td><button type="button" id="delete1">Delete</button>
+        <script>document.getElementById("delete1").addEventListener('click',evt=>{
+            document.getElementById("row1").remove();});</script></td>
+    </tr>
+
+
+    <tr id="addRowIng"><td><button type="button" id = "addIng">Add item</button></td></tr>
+    <script>
+        countIng += 1;
+        const addIng = document.getElementById("addIng");
+        const addRowIng = document.getElementById("addRowIng");
+        addIng.addEventListener('click', evt=>{
+            const count=countIng;
+            let newRow = document.createElement('tr');
+            newRow.innerHTML= `<td><input type = "text" name = "ingredient_name${count}" id = "ingredient_name${count}"></li> </td>`;
+            newRow.innerHTML += `<td><input type = "text" name = "ingredient_amount${count} id = "ingredient_amount${count}"></td>`;
+            newRow.innerHTML += `<td><button type="button" id="delete${count}">Delete</button>`;
+            newRow.setAttribute('id', `row${count}`);
+            addRowIng.before(newRow);
+            document.querySelector(`#delete${count}`).addEventListener('click', evt=>{
+                document.getElementById(`row${count}`).remove()});
+            countIng+=1;
+        });
+    </script>
+</table>
+
+<h3>Instructions</h3>
+
+<table>
+    <tr>
+        <th>Steps</th>
+    </tr>
+    <tr id="rowIns1">
+        <td><textarea name = "instruction1"
+        id = "instruction1" cols="50" rows="4"></textarea></td>
+        <td><button type="button" id="deleteIns1">Delete</button>
+        <script>document.getElementById("deleteIns1").addEventListener('click',evt=>{
+            document.getElementById("rowIns1").remove();});</script></td>
+    </tr>
+    
+    <tr id="addRowIns"><td><button type="button" id="addIns">Add Item</button></td></tr>
+    <script>
+        countIns += 1;
+        const addIns = document.getElementById("addIns");
+        const addRowIns = document.getElementById("addRowIns");
+        addIns.addEventListener('click', evt=>{
+            const count=countIns;
+            let newRow = document.createElement('tr');
+            newRow.innerHTML = `<td><textarea name = "instruction${count}"
+            id = "instruction${count}" cols="50" rows="4"></textarea></td>`;
+            newRow.innerHTML += `<td><button type="button" id="deleteIns${count}">Delete</button>`;
+            newRow.setAttribute('id', `row${count}`);
+            addRowIns.before(newRow);
+            document.querySelector(`#deleteIns${count}`).addEventListener('click', evt=>{
+                document.getElementById(`row${count}`).remove();});
+            countIns +=1;
+        });
+
+    </script>
+</table>
+<input type="submit" value= "Save changes">
+</form>
+{% endblock %}

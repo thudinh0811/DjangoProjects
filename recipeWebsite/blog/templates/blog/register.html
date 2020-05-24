@@ -1,23 +1,24 @@
 {% extends 'blog/base.html' %}
-
+{% load static %}
 {% block title %}Register{% endblock %}
 
 {% block content %}
-<h1>WELCOME TO OUR TEAM!</h1>
-
-<form action = "{% url 'blog:createuser' %}" method="POST">
+<h1 class="reg_heading">WELCOME TO OUR TEAM!</h1>
+<div class = "reg_form_big">
+<form class="reg_form" action = "{% url 'blog:createuser' %}" method="POST">
     {% csrf_token %}
     <label for = "username">Username: </label>
     <input type ="text" name ="username" id="username" required>
     <label for = "email">Email: </label>
     <input type ="text" name ="email" id="email" placeholder="someone@example.ca" required>
-    <label for = "password">Password: </label>
-    <input type ="password" name ="password" id="password" required>
-    <label for = "password_conf">Please confirm your password: </label>
-    <input type ="password" name ="password_conf" id="password_conf" required>
+    <label for = "id_new_password1">Password: </label>
+    <input type ="password" name ="password" id="id_new_password1" required>
+    <label for = "id_new_password2">Please confirm your password: </label>
+    <input type ="password" name ="password_conf" id="id_new_password2" required>
 
     <input type = "submit" value = "Register">
 
 </form>
+</div>
 <script src="{% static 'blog/match.js' %}"></script>
 {% endblock %}

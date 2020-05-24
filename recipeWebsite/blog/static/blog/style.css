@@ -18,6 +18,11 @@
     src: url(font/iCiel\ Altus\ Serif.ttf);
 }
 
+@font-face{
+    font-family: FormFont;
+    src: url(font/iCiel\ Grandma\ Bold.otf);
+}
+
 div.navbar {
     display: flex; /* show like a table */
     flex-direction: row;
@@ -36,6 +41,7 @@ div.navbar span{
 }
 div.navbar span:hover {
     background-color: plum;
+    cursor: pointer;
 }
 
 li a{
@@ -43,7 +49,7 @@ li a{
     color: whitesmoke;
     font-size: xx-large;
     text-decoration: none;
-    margin: 20px;
+    margin: 5px 20px;
     height: 100px;
     width: auto;
     
@@ -53,13 +59,13 @@ li a{
     list-style: "\2764";
     color: #ffffff;
     font-family: ListFont;
-    column-count: 5;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     list-style-position: inside;
 }
 
 .recipe_list li{
-    margin: 50px;
+    margin: 5px 50px;
 }
 
 .recipe_title{
@@ -94,7 +100,111 @@ li a{
     font-size: 2em;
     margin: 20px;
 }
+
+.author{
+    text-align: center;
+    color:  whitesmoke;
+    font-family: BodyFont;
+    font-size: 2em;
+}
+
+div.messages{
+    display: flex;
+    justify-content: center;
+}
+ 
+ul.messages{
+    background-color: plum;
+    font-family: BodyFont;
+    font-size: 2em;
+    list-style: none;
+    padding: 10px 30px 10px 30px;
+    border: thick solid purple;
+}
+
+.login, .reg_form_big{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login a, .reg_form_big a{
+    font-family: FormFont;
+    font-size: 2em;
+    color:white;
+}
+
+.form, .reg_form {
+    font-family: FormFont;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    width: 30ch;
+    margin: 10px;
+    padding: 2px;
+    color: white;
+}
+
+.form input, .reg_form input{
+    margin-bottom: 1em;
+    line-height: 1em;
+    font-size: 1em;
+    font-family: BodyFont;
+}
 body{
     background-color: cornflowerblue;
     margin: 0;
+}
+
+.reg_heading {
+    text-align: center;
+    font-family: BarFont;
+    color: white;
+    font-size: 2em;
+}
+.pro_heading{
+    text-align: left;
+    font-family: BodyFont;
+    font-style: bold;
+    color: whitesmoke;
+    font-size: 3em;
+    margin: 10px;
+}
+div.info {
+    display: flex;
+    margin: 5px;
+    flex-direction: column;
+    color: whitesmoke;
+    font-family: BodyFont;
+    font-size: large;
+}
+div.info p{
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em
+}
+
+div.info form{
+    font-size: 1.5em;
+}
+
+div.info form input[type="submit"]{
+    width: 20ch;
+    font-family: BodyFont;
+    font-size: large;
+}
+
+div.info h2, div.info h3{
+    font-size: 1.5em;
+    margin-bottom: 3px;
+    text-decoration: underline;
+}
+
+div.my_recipes ul{
+    margin: 1px;
+}
+
+div.my_recipes a{
+    margin: 0;
+    height: auto;
 }

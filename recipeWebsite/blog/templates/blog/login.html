@@ -4,8 +4,8 @@
 
 
 {% block content %}
-
-<form action ="{% url 'blog:auth' %}" method="POST">
+<div class="login">
+<form class="form" action ="{% url 'blog:auth' %}" method="POST">
     {% csrf_token %}
     <label for = "username">Username: </label>
     <input type = "text" name = "username" id = "username" placeholder="Username">
@@ -17,4 +17,5 @@
 </form>
 
 <a href = "{% url 'blog:register' %}">Register here</a>
+</div>
 {% endblock %}
